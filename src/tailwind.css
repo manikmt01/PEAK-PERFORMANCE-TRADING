@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* html tag style  */
+@layer base {
+  body {
+    @apply font-sfPro leading-normal;
+  }
+}
+
+/* layer style to add multiple class */
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+
+  .centerContainer {
+    @apply 2xl:max-w-86 max-w-7xl m-auto px-[16px] xl:px-0 w-full;
+  }
+
+  .faillingTrading {
+    @apply after:bg-3D5476 after:bg-opacity-10 after:content-[''] after:w-full after:h-44 after:absolute after:bottom-0 after:left-0 relative;
+  }
+
+  .arrowItem {
+    @apply after:content-[''] after:absolute after:-left-[6px] after:top-[40%] after:w-4 after:h-3 after:bg-[url('../img/arrow.svg')] after:bg-100% after:bg-no-repeat after:bg-center after:-z-0;
+  }
+
+  .lineColor {
+    @apply self-stretch lg:justify-start justify-center items-baseline gap-3 inline-flex w-full relative;
+  }
+
+
+
+  .lineColor h4 {
+    @apply text-slate-600 text-base font-normal leading-[17.17px] bg-white lg:pr-4 lg:pl-0 px-3 relative z-10;
+  }
+}
+
+/* custom style */
+@layer utilities {
+  .makeSuccessfulWrapp {
+    animation: marquee 30s linear infinite;
+    animation-play-state: running;
+    backface-visibility: hidden;
+  }
+
+  .makeSuccessfulWrapp:hover {
+    animation-play-state: paused;
+  }
+
+
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+  }
+
+  .accordion-button,
+  .accordion-buttonCustom {
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+    position: relative;
+    text-align: left;
+  }
+
+
+  .accordion-button::before,
+  .accordion-buttonCustom::before {
+    position: absolute;
+    content: "";
+    width: 23px;
+    height: 23px;
+    right: 5.5px;
+    top: 54%;
+    transform: translateY(-50%) rotate(180deg);
+    background-color: initial;
+    background-image: url("../img/chevron-down.svg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100%;
+    z-index: 9;
+    transition: background .6s, transform .6s;
+  }
+
+  .accordion-button.activeBtn::before {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  .fliterBg::before {
+    background-image: url(../img/color.svg);
+    position: absolute;
+    content: "";
+    left: -65px;
+    bottom: -100px;
+    width: 371px;
+    height: 369px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+  }
+
+  .overColor::after {
+    background: linear-gradient(180deg, #fff, #fff0);
+    width: 100%;
+    height: 102.75px;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 115px;
+    transform: rotate(180deg);
+  }
+
+  @media screen and (min-width: 768px) {
+    @keyframes marquee {
+      0% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .overColor:after {
+      background: linear-gradient(180deg, #fff, #ffffff75);
+      height: 102.75px;
+      bottom: 70px;
+    }
+
+    .mobileSlide {
+      overflow: hidden;
+      max-height: 600px;
+    }
+
+    .makeSuccessfulWrapp {
+      animation: marquee 15s linear infinite;
+      animation-play-state: running;
+      backface-visibility: hidden;
+    }
+
+    .fliterBg::before {
+      background-image: url(../img/color.png);
+      left: -107px;
+      bottom: -138px;
+      width: 417px;
+      height: 417px;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateY(100%);
+      }
+
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+  }
+
+  .lineColor::after {
+    background: linear-gradient(90deg, rgb(0 0 0 / 0%), #000, rgb(0 0 0 / 0%));
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    content: '';
+    left: 0;
+    top: 8px;
+    background-position: right;
+  }
+
+  /* Your modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s;
+    z-index: 99999999;
+  }
+
+  .modal-content {
+    animation: scaleIn 0.5s;
+  }
+
+  .MasterOptimalItem::-webkit-scrollbar {
+    display: none;
+  }
+
+  .modalBg {
+    background-size: 565px;
+  }
+
+  .fadeOut {
+    animation: fadeOut 0.5s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.5);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+
+}
