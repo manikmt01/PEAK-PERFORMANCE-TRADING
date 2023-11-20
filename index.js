@@ -37,10 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
 $('.sliderWrapp').slick({
   dots: false,
   infinite: true,
-  speed: 1500,
-  fade: true,
+  speed: 1000,
+  // fade: true,
+  cssEase: 'linear',
   slidesToShow: 1,
   slidesToScroll: 1,
+  adaptiveHeight: true,
   // autoplay: true,
   // autoplaySpeed: 2000,
   prevArrow: $('.prev'),
@@ -67,3 +69,47 @@ window.onclick = function (event) {
     }, 500);
   }
 };
+
+// Get the wrapper and content elements
+const wrapper = document.getElementById('myWrapper');
+const content = document.getElementById('myContent');
+
+let isDragging = false;
+let startX;
+let startY;
+let scrollLeft;
+let scrollTop;
+
+// Add mousedown event listener to start dragging
+wrapper.addEventListener('mousedown', handleStart);
+wrapper.addEventListener('touchstart', handleStart);
+
+// Add mouseup event listener to stop dragging
+wrapper.addEventListener('mouseup', handleEnd);
+wrapper.addEventListener('touchend', handleEnd);
+
+// Add mousemove event listener to handle dragging and scrolling
+wrapper.addEventListener('mousemove', handleMove);
+wrapper.addEventListener('touchmove', handleMove);
+
+function handleStart(e) {
+  isDragging = true;
+  startX = e.pageX || e.touches[0].pageX;
+  startY = e.pageY || e.touches[0].pageY;
+  scrollLeft = wrapper.scrollLeft;
+  scrollTop = wrapper.scrollTop;
+}
+
+function handleEnd() {
+  isDragging = false;
+}
+
+function handleMove(e) {
+  if (!isDragging) return;
+
+  const x = (e.pageX || e.touches[0].pageX) - startX;
+  const y = (e.pageY || e.touches[0].pageY) - startY;
+
+  wrapper.scrollLeft = scrollLeft - x;
+  wrapper.scrollTop = scrollTop - y;
+}
