@@ -66,21 +66,21 @@
 
   /* Track */
   .myWrapper:hover::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #F6891F;
+    box-shadow: inset 0 0 5px #3D5476;
     border-radius: 10px;
     transition: all ease .6s;
   }
 
   /* Handle */
   .myWrapper:hover::-webkit-scrollbar-thumb {
-    background: #F6891F;
+    background: #3D5476;
     border-radius: 10px;
     transition: all ease .6s;
   }
 
   /* Handle on hover */
   .myWrapper::-webkit-scrollbar-thumb:hover {
-    background: #F6891F;
+    background: #3D5476;
     transition: all ease .6s;
   }
 
