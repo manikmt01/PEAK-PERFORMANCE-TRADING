@@ -50,24 +50,24 @@ $('.sliderWrapp').slick({
 });
 
 // modal
-// Get the modal element and the button that opens it
-var modal = document.getElementById('myModal');
-var btn = document.getElementById('openModalButton');
-
-// When the user clicks the button, open the modal
-btn.onclick = function () {
+// Function to open a modal by ID
+function openModal(modalId) {
+  var modal = document.getElementById(modalId);
   modal.style.display = 'flex';
-};
+}
 
-// When the user clicks outside of the modal, close it with fade-out animation
+// When the user clicks outside of a modal, close it with fade-out animation
 window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.classList.add('fadeOut');
-    setTimeout(function () {
-      modal.style.display = 'none';
-      modal.classList.remove('fadeOut');
-    }, 500);
-  }
+  var modals = document.querySelectorAll('.modal');
+  modals.forEach(function (modal) {
+    if (event.target === modal) {
+      modal.classList.add('fadeOut');
+      setTimeout(function () {
+        modal.style.display = 'none';
+        modal.classList.remove('fadeOut');
+      }, 500);
+    }
+  });
 };
 
 // Get the wrapper and content elements

@@ -30,8 +30,8 @@
           </a>
         </div>
         <div class="headerright text-end self-center lg:w-auto w-[107px]">
-          <button id="openModalButton"
-            class=" lg:px-6 px-3  lg:py-[18px] py-2  bg-F6891F rounded-[44px] justify-center items-center gap-3 inline-flex">
+          <button onclick="openModal('Modal1')"
+            class="openModalButton lg:px-6 px-3  lg:py-[18px] py-2  bg-F6891F rounded-[44px] justify-center items-center gap-3 inline-flex">
             <span
               class="text-center text-white lg:text-lg text-[10px] font-medium  uppercase lg:leading-none leading-[8.93px]">Contact
               Us</span>
@@ -87,11 +87,11 @@
               <br />Trading
               Approach
             </h2>
-            <a href=""
-              class=" lg:px-6 lg:py-3 px-[13.94px] py-[6.97px]  bg-white xl:rounded-[41px] rounded-3xl  border border-3D5476 justify-center items-center lg:gap-3 gap-[6.97px] inline-flex">
+            <button onclick="openModal('Modal2')"
+              class="openModalButton lg:px-6 lg:py-3 px-[13.94px] py-[6.97px]  bg-white xl:rounded-[41px] rounded-3xl  border border-3D5476 justify-center items-center lg:gap-3 gap-[6.97px] inline-flex">
               <span class="lg:w-[18px] w-[10.45px]"><img src="./img/play.svg" alt="play"></span>
               <span class="text-3D5476 lg:text-lg text-[10.45px] font-normal  uppercase">Watch Video</span>
-            </a>
+            </button>
           </div>
           <img src="./img/tutorial-video/tutorial.png" alt="img"
             class="lg:-mt-5 -mt-3  bg-gradient-to-b from-white to-white rounded-xl">
@@ -274,10 +274,11 @@
         <!-- item end -->
         <!-- link start  -->
         <div class="text-center">
-          <a href="" class=" px-6 py-3 bg-amber-500 rounded-[41px] justify-center items-center gap-3 inline-flex">
+          <button onclick="openModal('Modal1')"
+            class="openModalButton  px-6 py-3 bg-amber-500 rounded-[41px] justify-center items-center gap-3 inline-flex">
             <span class="text-white text-lg font-normal  uppercase">Mentor Guidance</span>
             <img src="img/long-arrow-alt-right-light.svg" alt="img">
-          </a>
+          </button>
         </div>
         <!-- link end -->
       </div>
@@ -604,11 +605,11 @@
           Now is the moment to take decisive action and unlock your full potential. Remember, the only thing standing
           between you and your dreams is that very first step. So, ask yourself, are you ready to take it?</p>
         <div class="lg:block flex justify-center lg:w-auto w-full">
-          <a href=""
-            class="px-6 lg:px-8 py-4 lg:py-6 bg-orange-500 rounded-[41px] justify-center items-center gap-3 flex">
+          <button onclick="openModal('Modal1')"
+            class="openModalButton px-6 lg:px-8 py-4 lg:py-6 bg-orange-500 rounded-[41px] justify-center items-center gap-3 flex">
             <span class="text-white lg:text-lg text-base font-normal  uppercase">Yes, I’m Ready</span>
             <img src="img/long-arrow-alt-right-light.svg" alt="img">
-          </a>
+          </button>
         </div>
       </div>
     </div>
@@ -1603,11 +1604,11 @@
         </div>
         <!-- button start  -->
         <div class="text-center xl:relative xl:-bottom-[2.1rem] xl:pt-0 pt-3 xl:pb-0 pb-[29px]">
-          <a href=""
-            class=" px-12 py-6 bg-blue-500 rounded-[41px] shadow justify-center items-center gap-3 inline-flex">
+          <button onclick="openModal('Modal1')"
+            class="openModalButton  px-12 py-6 bg-blue-500 rounded-[41px] shadow justify-center items-center gap-3 inline-flex">
             <div class="text-white text-lg font-normal uppercase">Apply Now</div>
             <img src="img/long-arrow-alt-right-light.svg" alt="img">
-          </a>
+          </button>
         </div>
         <!-- button  end -->
       </div>
@@ -2083,7 +2084,7 @@
 
 
   <!-- The modal -->
-  <div id="myModal" class="modal overflow-auto p-5">
+  <div id="Modal1" class="modal overflow-auto p-5">
     <div class="modal-content ">
       <!-- modal content start  -->
       <div
@@ -2131,10 +2132,29 @@
   </div>
 
 
+  <!-- The modal -->
+  <div id="Modal2" class="modal overflow-auto p-5 ">
+    <div class="modal-content ">
+      <!-- modal content start  -->
+      <div
+        class="xl:w-[1191px] lg:w-[100%]  max-w-full bg-white rounded-xl border border-black border-opacity-20  lg:p-5">
+        <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/8masNA6oh_M?si=7HX7dOhnY_zduXPQ"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+
+      </div>
+      <!-- modal content end -->
+    </div>
+  </div>
+  </div>
+
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-  <script src="index.js"></script>
+  <script src="./index.js"></script>
 
 </body>
 
