@@ -48,12 +48,94 @@ $('.sliderWrapp').slick({
   prevArrow: $('.prev'),
   nextArrow: $('.next'),
 });
+// slider start
+$('.Feedback').slick({
+  dots: false,
+  infinite: true,
+  speed: 300,
+  // fade: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+  // autoplay: true,
+  // autoplaySpeed: 2000,
+  prevArrow: $('.prev2'),
+  nextArrow: $('.next2'),
+});
+
+// testimonia slider start
+$('.testimonialSlider').slick({
+  dots: false,
+  infinite: true,
+  speed: 300,
+  // fade: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  centerPadding: '15%',
+  centerMode: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  prevArrow: $('.prev3'),
+  nextArrow: $('.next3'),
+  responsive: [
+    {
+      breakpoint: 600,
+      settings: {
+        centerPadding: '10%',
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        centerPadding: '0',
+      },
+    },
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ],
+});
+
+// tab start
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('ul li a');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', function (e) {
+      e.preventDefault();
+      tabs.forEach(t => {
+        t.classList.remove('active-tab');
+        t.classList.add('inactive-tab');
+      });
+      tabContents.forEach(content => content.classList.add('hidden'));
+
+      this.classList.add('active-tab');
+      this.classList.remove('inactive-tab');
+      tabContents[index].classList.remove('hidden');
+    });
+
+    if (tabs.length > 0) {
+      tabs[0].click();
+    }
+  });
+});
 
 // modal
 // Function to open a modal by ID
 function openModal(modalId) {
   var modal = document.getElementById(modalId);
-  modal.style.display = 'flex';
+  modal.style.display = 'block';
+}
+
+// Function to close a modal by ID
+function closeModal(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.classList.add('fadeOut');
+  setTimeout(function () {
+    modal.style.display = 'none';
+    modal.classList.remove('fadeOut');
+  }, 500);
 }
 
 // When the user clicks outside of a modal, close it with fade-out animation
@@ -61,11 +143,7 @@ window.onclick = function (event) {
   var modals = document.querySelectorAll('.modal');
   modals.forEach(function (modal) {
     if (event.target === modal) {
-      modal.classList.add('fadeOut');
-      setTimeout(function () {
-        modal.style.display = 'none';
-        modal.classList.remove('fadeOut');
-      }, 500);
+      closeModal(modal.id);
     }
   });
 };

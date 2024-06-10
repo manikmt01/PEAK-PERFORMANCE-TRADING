@@ -22,6 +22,7 @@ module.exports = {
     // },
     fontFamily: {
       sfPro: ['SF Pro Display'],
+      Roboto: ['Roboto,sans-serif'],
     },
     extend: {
       colors: {
